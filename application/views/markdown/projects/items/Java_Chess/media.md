@@ -1,0 +1,3 @@
+The code and executable jar available for this project are as shown in the following video, but without the images, sounds, and a few interface elements. When I wrote this, I didn't think to properly keep track of image and sound sources (they were all free, I just can't attribute some of them).
+
+<object width="480" height="385"><param name="movie" value="https://www.youtube-nocookie.com/v/Ytpb35VO4gI?fs=1&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube-nocookie.com/v/Ytpb35VO4gI?fs=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>

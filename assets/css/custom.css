@@ -1,0 +1,16 @@
+.project p{
+  text-indent: 1em;
+}
+.project .btn-large{
+  padding: 5.5px 14px;
+}
+.project a i{
+  font-size: 2em;
+  float: left;
+}
+.project a p{
+  float: left;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  text-indent: 0em;
+}

@@ -37,6 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['projects/content/piano/pitches/(:any)'] = "fileserv/Flash_Piano/$1";
 
 $route['blog'] = "pages/blog/";
 $route['blog/(:any)'] = "pages/blog/$1";

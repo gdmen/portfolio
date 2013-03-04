@@ -1,0 +1,1 @@
+* Under currently un-reproducable conditions, the cube's state breaks down. This generally seems to happen after extended use / manipulation of the model. The result is wildly inaccurate rendering that looks as though the camera has become too zoomed in to the cube.

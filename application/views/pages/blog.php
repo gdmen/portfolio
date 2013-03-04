@@ -4,7 +4,7 @@
     <div class="well sidebar-nav">
       <ul class="nav nav-list">
         <?php foreach ($menu as $title) {?>
-          <li <?php if($title === $post) echo 'class="active"';?>><a href="<?=base_url()?>blog/<?=$title?>"><?=$title?></a></li>
+          <li <?php if($title === $active) echo 'class="active"';?>><a href="<?=base_url()?>blog/<?=$title?>"><?=preg_replace('/_/', ' ', $title)?></a></li>
         <?php } ?>
       </ul>
     </div><!--/.well -->
