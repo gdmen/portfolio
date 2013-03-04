@@ -3,19 +3,17 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title><?=$title_for_layout; ?></title>
+    <title><?=$title_for_layout?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!-- styles -->
-    <link href="<?=base_url()?>assets/css/bootstrap.css" rel="stylesheet" />
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    <link href="<?=base_url()?>assets/css/bootstrap-responsive.css" rel="stylesheet" />
+    <?=$css_for_layout?>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -31,13 +29,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="<?=base_url()?>">Short Stories</a>
+          <a class="brand" href="<?=base_url()?>">Gary Menezes</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li <?=active($page,1)?>><a href="<?=base_url()?>">Home</a></li>
-              <li <?=active($page,2)?>><a href="<?=base_url()?>about">About</a></li>
-              <li <?=active($page,3)?>><a href="<?=base_url()?>stories">Short Stories</a></li>
-              <li <?=active($page,4)?>><a href="<?=base_url()?>contact">Contact</a></li>
+              <li <?=active($page,2)?>><a href="<?=base_url()?>blog">Blog</a></li>
+              <li <?=active($page,2)?>><a href="<?=base_url()?>projects">Projects</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -45,36 +42,10 @@
     </div>
     
     <div class="container">
-      <div class="row">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
-     
-        </div>
-        <div class="span9 content"><?php echo $content_for_layout ?></div>
-      </div>
-    </div> 
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
+      <?=$content_for_layout?>
+    </div>
+    
+    <?=$js_for_layout?>
+    
   </body>
 </html>
