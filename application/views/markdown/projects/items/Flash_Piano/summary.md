@@ -1,1 +1,1 @@
-A one day project to play with ActionScript.
+A simple project to play with ActionScript.

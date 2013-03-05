@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Copyright 2010 Gary Menezes -->
+
+<html xmlns = "http://www.w3.org/1999/xhtml" lang = "en" >
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="copyright" content="design and content by Gary Menezes" />
+		<title>Projects - Gary Menezes</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		<script type="text/javascript" src="menus.js" language="javascript"></script>
+		<script type="text/javascript" src="flowplayer-3.2.2.min.js"></script>
+	</head>
+
+	<body>
+	
+		<div class="backround_wrapper" id="background_top">
+		
+			<div class="content">
+				
+				<!--#include file="header.html" -->
+				
+				<!-- page content here -->
+				<div id="sidebar" >
+					<ul id="sidebar_ul">
+						<li class="on_sidebar">
+							<a href="#projects_intro" onclick="selectSidebar(this); showDiv('projects_intro'); return false;">projects</a>
+						</li>
+						<li class="off_sidebar">
+							<a href="#project5" onclick="selectSidebar(this); showDiv('project5'); return false;">this site</a>
+						</li>
+						<li class="off_sidebar">
+							<a href="#project4" onclick="selectSidebar(this); showDiv('project4'); return false;">rubiks cube</a>
+						</li>
+						<li class="off_sidebar">
+							<a href="#project3" onclick="selectSidebar(this); showDiv('project3'); return false;">mesh editor</a>
+						</li>
+						<li class="off_sidebar">
+							<a href="#project2" onclick="selectSidebar(this); showDiv('project2'); return false;">animation engine</a>
+						</li>
+						<li class="off_sidebar">
+							<a href="#project1" onclick="selectSidebar(this); showDiv('project1'); return false;">chess</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="page_content">
+				
+				
+					<div id="projects_intro" class="on_content">
+						<br />
+						
+						<p><span class="content_emphasis">Coding Projects</span></p>
+						<p>This is a listing of my assigned and personal programming projects. They are chronologically ordered with the most recent project at the top. Authorship is noted at the bottom of each page.</p>
+						<p><b>Copyright Notice</b></p>
+						<p>You can download the source code for some of these projects. Unless otherwise stated on a project page, these projects are avaiable for download under the following conditions:</p>
+						<p>You may:</p>
+						<ol><li>Use this code for non-commercial, educational, and personal purposes.</li>
+							<li>Redistribute this code <i>as is</i> along with included copyright notices.</li>
+						</ol>
+						<p>You may <strong>not</strong>:</p>
+						<ol><li>Use this code for any commercial purpose.</li>
+							<li>Create any derivative works for redistribution.</li>
+						</ol><br />
+					</div>
+					
+					<div id="project5" class="off_content">
+						<br />
+						
+						<p><span class="content_emphasis">Resume Website (This one!)</span></p>
+						<p>This site was a week-long project built as I learned (x)html, css, javascript, and Microsoft Expression Design (for the images).
+						I created 100% of this site - all xhtml, css, javascript, and images!</p>
+						<p>I've tested this site in Firefox, IE8, and Chrome in 1440x990 and 1024x768 screen resolutions.</p>
+						<p>The most annoying challenge was figuring out the javascript to do the switches (display on/off) between content when selections are made in the sidebar.</p>
+						<p>Problems to fix:</p>
+						<ol><li>The side menu doesn't work at all without javascript enabled.</li>
+							<li>I've had trouble making a comprehensive site map because inner pages are just divs switched with javascript.</li>
+							<li>The site is pretty unusable in 800x600 screen resolution.</li>
+							<li>The whole site seems heavy/overdone and too dark.</li>
+						</ol>
+						<p>No other implementation flaws that I'm aware of, just design issues.</p>
+						<p>Overall, I'm happy with this first stab at web design. In my defense, I started with no layout plan. If I do update the layout of this site, I'll probably go for a more reasonable main menu.</p>
+						<p>Author: Gary Menezes
+						</p><br />
+					</div>
+					
+					<div id="project4" class="off_content">
+						<br />
+						
+						<p><span class="content_emphasis">CIS 192 Final Project</span>
+						<br /><a href="downloads/pyRubiks v1.0.zip"><span class="content_small">[source code]</span></a></p>
+						<p>This project is available under the <a href="http://www.gnu.org/licenses/gpl.html"><span class="content_small">GNU General Public License</span></a>.</p>
+						<p>A 3D rubik's cube implemented in python using PyOpenGL, NumPy, and wxPython.
+						You can jumble the cube and then solve it while enjoying the awesomely animated rotations!</p>
+						<p>Features:</p>
+						<ol><li>Move selected face (also rotates cube to maintain view of selected face)</li>
+							<li>Rotate the row/column containing the selected face</li>
+							<li>Jumble cube</li>
+							<li>Reset Cube</li>
+						</ol>
+						<p>The following video contains three 'games.' The first game demonstrates selection movement, rotation, and solvability. The transition to the second game demonstrates the reset function. The second game demonstrates a single jumble and solve. The third game has multiple jumbles (for those who can solve a rubik's cube better than I can!).</p>
+						<p>The screen capture program (CamStudio) significantly slowed the game, but it wasn't that fast to begin with. I think python was not made for this!</p>
+						<p>The video below is playing in an opensource flash player because the player is less cluttered than youtube embeds. For significantly better quality, <a href="http://www.youtube.com/watch?v=ZEW-hNTeqeg">view here</a>.</p>
+						<p>
+							<a  
+								 href="videos/Rubiks_Cube.flv"  
+								 style="display:block;width:520px;height:400px"  
+								 id="player_project4"> 
+							</a>
+							<script>
+								flowplayer("player_project4", "flowplayer/flowplayer-3.2.2.swf", {
+									clip:  {
+										autoPlay: false,
+										autoBuffering: true
+									}
+								});
+							</script>
+						</p>
+						<!-- <p><object type="application/x-shockwave-flash" style="width:450px; height:366px;" data="http://www.youtube.com/v/ZEW-hNTeqeg?rel=0&amp;showsearch=0&amp;fs=1"><param name="movie" value="http://www.youtube.com/v/ZEW-hNTeqeg?rel=0&amp;showsearch=0&amp;fs=1" /><param name="allowFullScreen" value="true" /></object></p> -->
+						<p>Authors: Gary Menezes, Patrick Yeyoon, and Samuel Appelbaum.
+						</p><br />
+					</div>
+					
+					<div id="project3" class="off_content">
+						<br />
+						
+						<p><span class="content_emphasis">CIS 277 Final Project</span></p>
+						<p>Coming sometime in the near future.
+						</p><br />
+						
+					</div>
+					
+					<div id="project2" class="off_content">
+						<br />
+						
+						<p><span class="content_emphasis">CIS 277 Project</span></p>
+						<p>Coming sometime in the near future.
+						</p><br />
+						
+					</div>
+					
+					<div id="project1" class="off_content">
+						<br />
+						
+						<p><span class="content_emphasis">AP Computer Science Final Project</span>
+						<br /><a href="downloads/GChess v1.0.zip"><span class="content_small">[source code]</span></a>
+						<a href="downloads/GChess.jar"><span class="content_small">[executable jar]</span></a></p>
+						<p>A chess game implemented in Java using the Swing toolkit/AWT. It took me about 30 hours over the course of a week.</p>
+						<p>Features:</p>
+						<ol><li>Highlight possible moves (toggle-able)</li>
+							<li>Corny sound effects and animated gifs</li>
+							<li>Taken pieces display</li>
+							<li>Move notation display</li>
+							<li>Undo Move</li>
+						</ol>
+						<p>This program prevents illegal moves and even has proper castling and en passant. My original project proposition included an AI, but it soon became apparent that would be impractical for a week long project.</p>
+						<p>I wrote the GUI myself (i.e. no Netbeans) and I'm still surprised at how professional this program looks.</p>
+						<p>The code and executable jar I have made available are of this project as shown in the following video, but without the images, sounds, and a few interface elements. When I wrote this, I was relatively naive about copyrights and didn't bother to properly keep track of image and sound sources (they were all free, I just can't attribute some of them).</p>
+						<p>The video below is playing in an opensource flash player because the player is less cluttered than youtube embeds. For significantly better quality, <a href="http://www.youtube.com/watch?v=Ytpb35VO4gI">view here</a>.</p>
+						<p>
+							<a  
+								 href="videos/Java_Chess.flv"  
+								 style="display:block;width:520px;height:400px"  
+								 id="player_project1"> 
+							</a>
+							<script>
+								flowplayer("player_project1", "flowplayer/flowplayer-3.2.2.swf", {
+									clip:  {
+										autoPlay: false,
+										autoBuffering: true
+									}
+								});
+							</script>
+						</p>
+						<!-- <p><object type="application/x-shockwave-flash" style="width:450px; height:366px;" data="http://www.youtube.com/v/Ytpb35VO4gI?rel=0&amp;showsearch=0&amp;fs=1"><param name="movie" value="http://www.youtube.com/v/Ytpb35VO4gI?rel=0&amp;showsearch=0&amp;fs=1" /><param name="allowFullScreen" value="true" /></object></p> -->
+						<p>Author: Gary Menezes
+						</p><br />
+					</div>
+
+				</div>
+				<!-- page content here -->
+			</div>
+		</div>
+		
+		<!--#include file="footer.html" -->
+
+	</body>
+
+</html>

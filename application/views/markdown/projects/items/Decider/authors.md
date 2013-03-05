@@ -1,1 +1,1 @@
-Authors: Gary Menezes, Ryan Menezes, Lu Chen, Matthew Croop
+By: Gary Menezes, Ryan Menezes, Lu Chen, Matthew Croop

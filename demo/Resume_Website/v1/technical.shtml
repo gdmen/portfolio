@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Copyright 2010 Gary Menezes -->
+
+<html xmlns = "http://www.w3.org/1999/xhtml" lang = "en">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html charset=utf-8" />
+		<meta name="copyright" content="design and content by Gary Menezes" />
+		<title>Technical - Gary Menezes</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		<script type="text/javascript" src="menus.js" language="javascript"></script>
+	</head>
+
+	<body>
+	
+		<div class="backround_wrapper" id="background_top">
+		
+			<div class="content">
+			
+				<!--#include file="header.html" -->
+				
+				<!-- page content here -->
+				<div id="sidebar" >
+					<ul id="sidebar_ul">
+						<li class="on_sidebar">
+							<a href="#technical_intro" onclick="selectSidebar(this); showDiv('technical_intro'); return false;">technical skills</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="page_content">
+				
+					<div id="technical_intro" class="on_content">
+						<br />
+						
+						<p><span class="content_emphasis">Programming Languages</span></p>
+						<p>Java, C/C++, Python, X(HTML), CSS, Javascript, some OpenGL, PHP, and MySQL</p><br />
+						
+						<p><span class="content_emphasis">Software</span></p>
+						<p>Microsoft Office, Eclipse, Qt, Microsoft Visual Studio, Microsoft Expression Design</p><br />
+						
+						<p><span class="content_emphasis">Operating Systems</span></p>
+						<p>Windows, some Linux (Ubuntu)</p><br />
+					
+					</div>
+					
+				</div>
+				<!-- page content here -->
+			</div>
+		</div>
+		
+		<!--#include file="footer.html" -->
+
+	</body>
+
+</html>
