@@ -6,6 +6,9 @@
 */
 
 
+.project .btn-large{
+  margin-top: 10px;
+}
 
 /* Body and structure
 -------------------------------------------------- */
@@ -866,6 +869,9 @@ form.bs-docs-example {
 /* Tablet to desktop
 ------------------------- */
 @media (min-width: 768px) and (max-width: 979px) {
+  .project .btn-large{
+    margin-top: 0px;
+  }
   /* Remove any padding from the body */
   body {
     padding-top: 0;
@@ -887,6 +893,9 @@ form.bs-docs-example {
 /* Tablet
 ------------------------- */
 @media (max-width: 767px) {
+  .project .btn-large{
+    margin-top: 0px;
+  }
   /* Remove any padding from the body */
   body {
     padding-top: 0;

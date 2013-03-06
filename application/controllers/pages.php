@@ -10,11 +10,11 @@ class Pages extends CI_Controller {
 		
 		$this->layout->title("Gary Menezes");
     $this->layout->js(base_url().'/assets/js/jquery.min.js');
-    $this->layout->js(base_url().'assets/js/bootstrap.min.js');
+    $this->layout->js(base_url().'assets/js/bootstrap.js');
     $this->layout->js(base_url().'assets/js/custom.js');
     $this->layout->css(base_url().'assets/css/bootstrap.css');
     $this->layout->css(base_url().'assets/css/bootstrap-responsive.css');
-    $this->layout->css(base_url().'assets/css/bs-docs.css');
+    //$this->layout->css(base_url().'assets/css/bs-docs.css');
     $this->layout->css(base_url().'assets/css/font-awesome.min.css');
     $this->layout->css(base_url().'assets/css/custom.css');
 	}
@@ -89,19 +89,19 @@ class Pages extends CI_Controller {
         show_404();
       }
     } else {
-      // Load menu
+      /*// Load menu
       $menu = APPPATH . 'views/markdown/'. $page .'/menu';
       if (file_exists($menu)) {
         $data['menu'] = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
       } else {
         show_404();
-      }
+      }*/
       $dir = APPPATH . 'views/markdown/'. $page .'/items/' . $project;
+      $data['project_menu'] = array();
       // Load project
       if (is_dir($dir)) {
-        $data['project_menu'] = array();
-        $mds = ['authors', 'summary', 'features', 'media', 'details', 'bugs', 'technologies'];
-        $plaintexts = ['title', 'links'];
+        $mds = ['authors', 'summary', 'features', 'details', 'media'];
+        $plaintexts = ['title', 'links', 'technologies'];
         foreach ($mds as $c) {
           $file = $dir . '/'. $c .'.md';
           if (file_exists($file) && ($file = file_get_contents($file)) !== "") {
@@ -109,7 +109,10 @@ class Pages extends CI_Controller {
             $file = preg_replace('/\$\$demo_url\$\$/', base_url() . 'demo/', $file);
             $file = preg_replace('/\$\$live_url\$\$/', base_url(), $file);
             $data['project_' . $c] = parse_markdown_extra($file);
-            $data['project_menu'][] = $c;
+            // Special formatting
+            if ($c != 'authors') {
+              $data['project_menu'][] = $c;
+            }
           }
         }
         foreach ($plaintexts as $c) {
@@ -119,6 +122,11 @@ class Pages extends CI_Controller {
             $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file); 
             $file = preg_replace('/\$\$demo_url\$\$/', base_url() . 'demo/', $file);
             $file = preg_replace('/\$\$live_url\$\$/', base_url() . '/', $file);
+            
+            // Special formatting
+            if ($c === 'technologies') {
+              $file = explode(',', $file);
+            }
             $data['project_' . $c] = $file;
           }
         }

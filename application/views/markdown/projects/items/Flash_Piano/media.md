@@ -1,7 +1,7 @@
 Click or click and drag:
 
 <div class="project-media-element">
-  <div class="yt-embed-container">
+  <div class="flash-embed-container">
     <object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="45%">
       <param name="movie" value="$$content_url$$Flash_Piano/piano.swf"/>
       <param name="quality" value="high"/>

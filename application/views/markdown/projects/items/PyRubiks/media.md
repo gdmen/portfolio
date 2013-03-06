@@ -4,7 +4,7 @@ The following video contains three 'games.' The first game demonstrates selectio
 The screen capture program (CamStudio) significantly slowed the game, but it wasn't incredibly fast to begin with.
 --->
 <div class="project-media-element">
-  <div class="yt-embed-container">
+  <div class="flash-embed-container">
     <iframe width="800" height="450" src="http://www.youtube-nocookie.com/embed/ZEW-hNTeqeg?wmode=transparent&amp;fs=1&amp;hl=en_US&amp;rel=0&amp;controls=0" frameborder="0"></iframe>
   </div>
 </div>
