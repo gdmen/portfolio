@@ -11,12 +11,11 @@ class Pages extends CI_Controller {
 		$this->layout->title("Gary Menezes");
     $this->layout->js(base_url().'/assets/js/jquery.min.js');
     $this->layout->js(base_url().'assets/js/bootstrap.js');
-    $this->layout->js(base_url().'assets/js/custom.js');
-    $this->layout->css(base_url().'assets/css/bootstrap.css');
-    $this->layout->css(base_url().'assets/css/bootstrap-responsive.css');
-    //$this->layout->css(base_url().'assets/css/bs-docs.css');
+    //$this->layout->js(base_url().'assets/js/custom.js');
+    $this->layout->css(base_url().'assets/css/styles.css');
+    $this->layout->css(base_url().'assets/css/styles-responsive.css');
     $this->layout->css(base_url().'assets/css/font-awesome.min.css');
-    $this->layout->css(base_url().'assets/css/custom.css');
+    //$this->layout->css(base_url().'assets/css/custom.css');
 	}
 
 	public function index()
