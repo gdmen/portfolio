@@ -9,7 +9,7 @@
   <div class="span4 content">
     <a href="<?=base_url()?>">
       <div class="well">
-        Latest project
+        Project spotlight
       </div>
     </a>
   </div>

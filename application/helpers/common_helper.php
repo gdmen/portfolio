@@ -13,8 +13,5 @@ function active($name, $number)
 	elseif(($name=="projects") && $number == 3) {
 		return "class='active'";
 	}
-	elseif(($name=="resume") && $number == 4) {
-		return "class='active'";
-	}
 }
 ?>

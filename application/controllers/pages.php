@@ -78,10 +78,39 @@ class Pages extends CI_Controller {
     // If no project selected
     if ($project === "") {
       // Load menu
+      // menu element = [<page url>, <thumbnail url>, <title>, <thumbnail size>, <caption size>]
       $data['menu'] = array();
-      $menu =  glob('assets/img/thumbnails/' . $page . '/*.{jpg,png,gif}', GLOB_BRACE);
-      foreach ($menu as $menu_image) {
-        $data['menu'][] = $menu_image;
+      
+      // get name, size, and (implicitly) ordering of project menu items
+      $menu_config = array();
+      $menu = APPPATH . 'views/markdown/'. $page .'/menu';
+      if (file_exists($menu)) {
+        $menu_config_lines = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
+        foreach ($menu_config_lines as $line) {
+          $split = explode(' ', $line);
+          $menu_config[$split[0]] = $split;
+        }
+      } else {
+        show_404();
+      }
+      
+      // save menu elements
+      $thumbnails =  glob('assets/img/thumbnails/*.{jpg,png,gif}', GLOB_BRACE);
+      // TODO: improve the logic here - O(n^2) atm
+      foreach ($menu_config as $key => $menu_element) {
+        foreach ($thumbnails as $image_path) {
+          $project_title = basename($image_path, '.' . pathinfo($image_path)['extension']);
+          if ($project_title === $key) {
+            $data['menu'][] = [base_url() . $page . '/' . $menu_element[0],
+                               $image_path,
+                               preg_replace('/_/', ' ', $menu_element[0]),
+                               $menu_element[1],
+                               $menu_element[2]];
+          }
+          //$data['menu'][] = [base_url() . $page . '/' . $project_title,
+          //                   $image_path,
+          //                   preg_replace('/_/', ' ', $project_title)];
+        }
       }
       $this->layout->view('pages/projects', $data);
       /*

@@ -4718,6 +4718,7 @@ input[type="submit"].btn.btn-mini {
   margin-left: 0;
 }
 .thumbnails > li {
+  background-color: #f5f5f5;
   float: left;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -5288,4 +5289,14 @@ footer .container {
 footer .container blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
+}
+.thumbnails > li > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
