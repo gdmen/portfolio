@@ -4,16 +4,16 @@ function active($name, $number)
 {
 	$ci = get_instance();
 
-	if($name == 'home' && $ci->uri->segment(2) == "" && $number == 1)
-	{
+	if($name == 'home' && $number == 1) {
 		return "class='active'";
 	}
-	elseif($name=="about" && $ci->uri->segment(2) == "about" && $number == 2)
-	{
+	elseif($name=="blog" && $number == 2) {
 		return "class='active'";
 	}
-	elseif($name=="story" && $number == 3)
-	{
+	elseif(($name=="projects") && $number == 3) {
+		return "class='active'";
+	}
+	elseif(($name=="resume") && $number == 4) {
 		return "class='active'";
 	}
 }

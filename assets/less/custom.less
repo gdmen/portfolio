@@ -1,0 +1,28 @@
+#header-background{
+  background-color: #000;
+  background-image: url(@headerBackgroundImage);
+}
+html, body {
+ height: 100%;
+}
+
+#non-footer {
+  position: relative;
+  min-height: 100%;
+}
+
+* html #non-footer {
+  height: 100%;
+}
+
+#content {
+  padding-bottom: @footerHeight;
+}
+
+footer {
+  position: relative;
+  margin-top: -@footerHeight;
+  .container {
+    .well();
+  }
+}

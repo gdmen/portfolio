@@ -1,25 +1,12 @@
 <div class="row">
-  <div class="span3">
-    <div id="scrollspy" class="sidebar-nav"> <!--id="scrollspy" -->
-      <ul class="nav nav-list affix">
-        <?php foreach ($project_menu as $link) {?>
-            <li><a href="#<?=$link?>"><i class="icon-chevron-right"></i><?=ucfirst($link)?></a></li>
-        <?php } ?>
-    </div>
+  <div class="span2">
+    <ul class="nav nav-list"><!--affix-->
+      <?php foreach ($project_menu as $link) {?>
+          <li><a href="#<?=$link?>"><i class="icon-chevron-right"></i><?=ucfirst($link)?></a></li>
+      <?php } ?>
   </div>
-  <!--
-  <div class="span3">
-    <div class="">
-      <ul class="nav nav-list bs-docs-sidenav affix">
-        <?php foreach ($menu as $title) {?>
-          <li <?php if($title === $active) echo 'class="active"';?>><a href="<?=base_url()?>projects/<?=$title?>"><i class="icon-chevron-right"></i><?=preg_replace('/_/', ' ', $title)?></a></li>
-        <?php } ?>
-      </ul>
-    </div>
-  </div>
-  -->
    
-  <div class="span9 content project">
+  <div class="span10 project">
     <div class="pull-right"><?=$project_links?></div>
     <div><h1><?=$project_title?></h1></div>
     <?php if(isset($project_technologies)) {?>

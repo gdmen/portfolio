@@ -14,41 +14,46 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body data-spy="scroll" data-target="#scrollspy" ><!--- data-spy="scroll" data-target="#scrollspy" > --->
-    
+  <body>
     <div id="non-footer">
-      
-        <div class="navbar navbar-inverse navbar-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>
-              <a class="brand" href="<?=base_url()?>">Gary Menezes</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li <?=active($page,1)?>><a href="<?=base_url()?>">Home</a></li>
-                  <li <?=active($page,2)?>><a href="<?=base_url()?>blog">Blog</a></li>
-                  <li <?=active($page,2)?>><a href="<?=base_url()?>projects">Projects</a></li>
-                </ul>
-              </div><!--/.nav-collapse -->
+    
+      <div id="content">
+        <div id="header-background">
+          <div class="container">
+            <div class="row">
+              <div class="span12 content">
+                <a class="brand" href="<?=base_url()?>">gmenezes</a>
+                HEADER STUFF<br />
+                HEADER STUFF<br />
+                HEADER STUFF<br />
+                HEADER STUFF
+              </div>
             </div>
+          </div>
+        </div>
+          
+        <div class="navbar navbar-top">
+          <div class="navbar-inner">
+              <ul class="nav">
+                <li <?=active($page,1)?>><a href="<?=base_url()?>">Home</a></li>
+                <li <?=active($page,2)?>><a href="<?=base_url()?>blog">Blog</a></li>
+                <li <?=active($page,3)?>><a href="<?=base_url()?>projects">Projects</a></li>
+              </ul>
           </div>
         </div>
         
         <div class="container">
           <?=$content_for_layout?>
         </div>
-        
-      
-      <div id="push"></div>
+      </div>
     </div><!--/wrap -->
     
     <footer class="footer">
       <div class="container">
-        footer
+        FOOTER STUFF<br />
+        FOOTER STUFF<br />
+        FOOTER STUFF<br />
+        FOOTER STUFF
       </div>
     </footer>
     <?=$js_for_layout?>

@@ -27,6 +27,7 @@ class Pages extends CI_Controller {
 	public function blog($item)
 	{
 	  $page = 'blog';
+    $data['page'] = $page;
     $success = True;
     
     // Load menu
@@ -71,14 +72,19 @@ class Pages extends CI_Controller {
 	public function projects($project)
 	{
 	  $page = 'projects';
-    $success = True;
-    
     $data['page'] = $page;
-    $data['active'] = $project;
+    $success = True;
     
     // If no project selected
     if ($project === "") {
       // Load menu
+      $data['menu'] = array();
+      $menu =  glob('assets/img/thumbnails/' . $page . '/*.{jpg,png,gif}', GLOB_BRACE);
+      foreach ($menu as $menu_image) {
+        $data['menu'][] = $menu_image;
+      }
+      $this->layout->view('pages/projects', $data);
+      /*
       $menu = APPPATH . 'views/markdown/'. $page .'/menu';
       if (file_exists($menu)) {
         $data['menu'] = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
@@ -87,14 +93,8 @@ class Pages extends CI_Controller {
       } else {
         show_404();
       }
+      */
     } else {
-      /*// Load menu
-      $menu = APPPATH . 'views/markdown/'. $page .'/menu';
-      if (file_exists($menu)) {
-        $data['menu'] = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
-      } else {
-        show_404();
-      }*/
       $dir = APPPATH . 'views/markdown/'. $page .'/items/' . $project;
       $data['project_menu'] = array();
       // Load project
@@ -133,7 +133,7 @@ class Pages extends CI_Controller {
         $success = False;
       }
       
-      if ( ! $success) {
+      if ( !$success) {
         show_404();
       }
 	    $this->layout->view('pages/project', $data);
