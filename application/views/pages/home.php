@@ -1,5 +1,5 @@
 <div class="hero-unit">
-  <?=$home_blurb?>
+  <?=$blurb?>
 </div>
 <div class="row">
   <div class="span4 content">

@@ -43,6 +43,7 @@ $route['blog'] = "pages/blog/";
 $route['blog/(:any)'] = "pages/blog/$1";
 $route['projects'] = "pages/projects/";
 $route['projects/(:any)'] = "pages/projects/$1";
+$route['photography'] = "pages/photography/";
 $route['default_controller'] = "pages";
 $route['404_override'] = '';
 

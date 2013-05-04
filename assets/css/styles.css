@@ -568,6 +568,12 @@ a:focus {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Droid Serif";
+  src: url('../font/Droid-Serif/DroidSerif.ttf') format('truetype'), url('../font/Droid-Serif/DroidSerif-Bold.ttf') format('truetype'), url('../font/Droid-Serif/DroidSerif-BoldItalic.ttf') format('truetype'), url('../font/Droid-Serif/DroidSerif-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 p {
   margin: 0 0 9.5px;
 }
@@ -640,7 +646,7 @@ h4,
 h5,
 h6 {
   margin: 9.5px 0;
-  font-family: inherit;
+  font-family: "Droid Serif";
   font-weight: bold;
   line-height: 19px;
   color: inherit;
@@ -4777,6 +4783,7 @@ a.thumbnail:focus {
 .thumbnail > img {
   display: block;
   max-width: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -5252,7 +5259,6 @@ a.badge:focus {
   border-radius: 6px;
 }
 .hero-unit h1 {
-  font-family: "Sansita One", cursive;
   margin-top: 0;
   margin-bottom: 20px;
   font-size: 50px;
@@ -5301,7 +5307,6 @@ body {
 #header {
   background-color: #000;
   background-image: url("../img/dvsup.png");
-  font-family: "Sansita One", cursive;
   overflow: hidden;
   padding-top: 3em;
 }
@@ -5320,6 +5325,7 @@ body {
   overflow: hidden;
 }
 #header .brand {
+  font-family: "Sansita One", cursive;
   font-size: 2em;
   line-height: 1.5em;
   margin-left: 2px;
@@ -5329,12 +5335,16 @@ body {
   text-decoration: none;
 }
 #header .header-subtext {
+  font-family: "Sansita One", cursive;
   color: #555555;
   margin-left: 1px;
 }
 #header .header-subtext:hover {
   color: #555555;
   text-decoration: none;
+}
+.navbar i {
+  padding-right: 0.5em;
 }
 footer {
   margin-top: -7.35em;
@@ -5357,24 +5367,33 @@ footer .container {
   height: 4.35em;
   min-height: 0;
   margin: 0 auto;
-  padding: 1em 0.5em;
+  padding: 1em;
+  text-align: center;
 }
 footer .container blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
+footer .container .social-media {
+  display: inline-block;
+}
 footer .container .social-media .thumbnails {
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 footer .container .social-media .thumbnails li {
   margin-left: 2.5px;
   margin-bottom: 0;
-  padding-bottom: 0;
 }
 footer .container .social-media .thumbnails li i {
   color: #004467;
   font-size: 4.5em;
   text-decoration: none;
+}
+.photography-header {
+  text-transform: capitalize;
+}
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }

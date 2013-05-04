@@ -13,5 +13,5 @@ class FileServ extends CI_Controller {
     force_download($name, $file);
 	}
 }
-/* End of file static.php */
-/* Location: ./application/controllers/static.php */
+/* End of file fileserv.php */
+/* Location: ./application/controllers/fileserv.php */
