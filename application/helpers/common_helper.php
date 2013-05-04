@@ -7,10 +7,10 @@ function active($name, $number)
 	if($name == 'home' && $number == 1) {
 		return "class='active'";
 	}
-	elseif($name=="blog" && $number == 2) {
+	elseif(($name=="projects") && $number == 2) {
 		return "class='active'";
 	}
-	elseif(($name=="projects") && $number == 3) {
+	elseif($name=="blog" && $number == 3) {
 		return "class='active'";
 	}
 }

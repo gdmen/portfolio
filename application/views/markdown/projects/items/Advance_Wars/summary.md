@@ -1,1 +1,1 @@
-summary
+This is a PC clone of the popular Game Boy Advance game, Advance Wars. Advance Wars is a two player turn based strategy game. Each player starts with several buildings that provide income which the player can use to buy units. These units are used to capture enemy and neutral buildings. A player wins by capturing their opponent’s headquarters building.

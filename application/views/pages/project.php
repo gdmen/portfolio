@@ -4,6 +4,7 @@
       <?php foreach ($project_menu as $link) {?>
           <li><a href="#<?=$link?>"><i class="icon-chevron-right"></i><?=ucfirst($link)?></a></li>
       <?php } ?>
+    </ul>
   </div>
    
   <div class="span10 project">
@@ -43,7 +44,6 @@
         <?=$project_details?>
       </div>
     <?php } ?>
-    <!--
     <?php if(isset($project_bugs)) {?>
       <div>
         <a id="bugs" name="bugs"></a>
@@ -51,7 +51,7 @@
         <h2>Bugs:</h2>
         <?=$project_bugs?>
       </div>
-    <?php } ?>-->
+    <?php } ?>
     <?php if(isset($project_media)) {?>
       <div>
         <a id="media" name="media"></a>

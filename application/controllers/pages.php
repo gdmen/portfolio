@@ -21,6 +21,22 @@ class Pages extends CI_Controller {
 	public function index()
   {
     $data['page'] = 'home';
+    
+    $home_blurb_file = APPPATH . 'views/markdown/static/home.md';
+    $data['home_blurb'] = '';
+    // Load home_blurb
+    if (file_exists($home_blurb_file) && ($home_blurb_file = file_get_contents($home_blurb_file)) !== "") {
+      $data['home_blurb'] = parse_markdown_extra($home_blurb_file);
+    }
+      
+    // array of highlight elements on the front page
+    $data['highlights'] = array();
+    
+    // add most recent blog post
+    
+    // add first project
+    
+    // 
     $this->layout->view('pages/home', $data);     // Render view and layout
 	}
 
@@ -88,24 +104,29 @@ class Pages extends CI_Controller {
         $menu_config_lines = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
         foreach ($menu_config_lines as $line) {
           $split = explode(' ', $line);
-          $menu_config[$split[0]] = $split;
+          $menu_config[$split[1]] = $split;
         }
       } else {
         show_404();
       }
       
       // save menu elements
-      $thumbnails =  glob('assets/img/thumbnails/*.{jpg,png,gif}', GLOB_BRACE);
+      $thumbnails =  glob('assets/img/thumbnails/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF}', GLOB_BRACE);
       // TODO: improve the logic here - O(n^2) atm
+      $current_row = -1;
       foreach ($menu_config as $key => $menu_element) {
         foreach ($thumbnails as $image_path) {
           $project_title = basename($image_path, '.' . pathinfo($image_path)['extension']);
           if ($project_title === $key) {
-            $data['menu'][] = [base_url() . $page . '/' . $menu_element[0],
-                               $image_path,
-                               preg_replace('/_/', ' ', $menu_element[0]),
-                               $menu_element[1],
-                               $menu_element[2]];
+            if ($menu_element[0] === "1") {
+              $current_row += 1;
+            }
+            $data['menu'][$current_row][] = [base_url() . $page . '/' . $menu_element[1],
+                                             $image_path,
+                                             preg_replace('/_/', ' ', $menu_element[1]),
+                                             $menu_element[2],
+                                             $menu_element[3],
+                                             $menu_element[0]];
           }
           //$data['menu'][] = [base_url() . $page . '/' . $project_title,
           //                   $image_path,
@@ -128,7 +149,7 @@ class Pages extends CI_Controller {
       $data['project_menu'] = array();
       // Load project
       if (is_dir($dir)) {
-        $mds = ['authors', 'summary', 'features', 'details', 'media'];
+        $mds = ['authors', 'summary', 'features', 'details', 'bugs', 'media'];
         $plaintexts = ['title', 'links', 'technologies'];
         foreach ($mds as $c) {
           $file = $dir . '/'. $c .'.md';
@@ -162,7 +183,7 @@ class Pages extends CI_Controller {
         $success = False;
       }
       
-      if ( !$success) {
+      if (!$success) {
         show_404();
       }
 	    $this->layout->view('pages/project', $data);

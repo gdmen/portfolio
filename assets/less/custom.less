@@ -1,7 +1,3 @@
-#header-background{
-  background-color: #000;
-  background-image: url(@headerBackgroundImage);
-}
 html, body {
  height: 100%;
 }
@@ -19,6 +15,40 @@ html, body {
   padding-bottom: @footerHeight;
 }
 
+#header{
+  background-color: #000;
+  background-image: url(@headerBackgroundImage);
+  font-family: "Sansita One", cursive;
+  overflow: hidden;
+  padding-top: 3em;
+
+  .header-left {
+    position: absolute;
+  }
+  .header-image {
+    .border-radius(@headerImageHeight/2);
+	  .box-shadow(8px);
+    height: @headerImageHeight;
+    margin-bottom: -1em;
+    overflow: hidden;
+  }
+  .brand {
+    font-size: 2em;
+    line-height: 1.5em;
+    &:hover {
+      color: @linkColor;
+      text-decoration: none;
+    }
+  }
+  .header-subtext {
+    color: @gray;
+    &:hover {
+      color: @gray;
+      text-decoration: none;
+    }
+  }
+}
+
 footer {
   position: relative;
   margin-top: -@footerHeight;
@@ -26,8 +56,26 @@ footer {
     .well();
   }
 }
-.thumbnails > li > h1,h2,h3,h4,h5,h6 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+.social-media {
+  .thumbnails {
+    margin-left: 0;
+    li {
+      margin-left: @gridGutterWidth / 8;
+      i {
+        color: @navbarBackground;
+        font-size: 4.5em;
+        text-decoration: none;
+      }
+    }
+    &.top > li{
+      margin-bottom: @baseLineHeight / 4;
+    }
+    &.bottom {
+      margin-bottom: 0;
+      li {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

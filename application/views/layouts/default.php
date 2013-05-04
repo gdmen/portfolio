@@ -18,16 +18,29 @@
     <div id="non-footer">
     
       <div id="content">
-        <div id="header-background">
+        <div id="header">
           <div class="container">
             <div class="row">
-              <div class="span12 content">
-                <a class="brand" href="<?=base_url()?>">gmenezes</a>
-                HEADER STUFF<br />
-                HEADER STUFF<br />
-                HEADER STUFF<br />
-                HEADER STUFF
+              <div class="span12 content text-center">
+                <div class="header-left">
+                  <div>
+                    <h3><a class="brand" href="<?=base_url()?>">gdm</a></h3>
+                  </div>
+                  <div>
+                    <a class="header-subtext" href="mailto:gmenezes@seas.upenn.edu">gmenezes@seas.upenn.edu</a>
+                  </div>
+                </div>
+                <div><a href="<?=base_url()?>"><img class="header-image grayscale" src="<?=base_url()?>/assets/img/headshot.jpg"></a></div>
               </div>
+            <!--
+              <div class="span12 content">
+                <div class=" text-center"><a href="<?=base_url()?>"><img class="rounded-image grayscale" src="assets/img/headshot.jpg"></a></div>
+                <div><h3><a class="brand" href="<?=base_url()?>">gdm</a></h3></div>
+                <div>
+                  gmenezes@seas.upenn.edu
+                </div>
+              </div>
+            -->
             </div>
           </div>
         </div>
@@ -35,9 +48,9 @@
         <div class="navbar navbar-top">
           <div class="navbar-inner">
               <ul class="nav">
-                <li <?=active($page,1)?>><a href="<?=base_url()?>">Home</a></li>
-                <li <?=active($page,2)?>><a href="<?=base_url()?>blog">Blog</a></li>
-                <li <?=active($page,3)?>><a href="<?=base_url()?>projects">Projects</a></li>
+                <li <?=active($page,1)?>><a href="<?=base_url()?>"><h4>Home</h4></a></li>
+                <li <?=active($page,2)?>><a href="<?=base_url()?>projects"><h4>Projects</h4></a></li>
+                <li <?=active($page,3)?>><a href="<?=base_url()?>blog"><h4>Blog</h4></a></li>
               </ul>
           </div>
         </div>
@@ -50,10 +63,16 @@
     
     <footer class="footer">
       <div class="container">
-        FOOTER STUFF<br />
-        FOOTER STUFF<br />
-        FOOTER STUFF<br />
-        FOOTER STUFF
+        <div class="social-media pull-right">
+            <ul class="thumbnails top">
+              <li><a href="http://www.github.com/gdmen"><i class="icon-github-sign"></i></a></li>
+              <li><a href="http://lnkd.in/dmeQNq"><i class="icon-linkedin-sign"></i></a></li>
+            </ul>
+            <ul class="thumbnails bottom">
+              <li><a href="http://www.facebook.com/gary.menezes"><i class="icon-facebook-sign"></i></a></li>
+              <li><a href="https://plus.google.com/110541355401835851033"><i class="icon-google-plus-sign"></i></a></li>
+            </ul>
+        </div>
       </div>
     </footer>
     <?=$js_for_layout?>
