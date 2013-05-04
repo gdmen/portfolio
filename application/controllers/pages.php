@@ -26,6 +26,8 @@ class Pages extends CI_Controller {
     $data['home_blurb'] = '';
     // Load home_blurb
     if (file_exists($home_blurb_file) && ($home_blurb_file = file_get_contents($home_blurb_file)) !== "") {
+      $dob = new DateTime('1992-2-17');
+      $home_blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $home_blurb_file); 
       $data['home_blurb'] = parse_markdown_extra($home_blurb_file);
     }
       
@@ -154,7 +156,7 @@ class Pages extends CI_Controller {
         foreach ($mds as $c) {
           $file = $dir . '/'. $c .'.md';
           if (file_exists($file) && ($file = file_get_contents($file)) !== "") {
-            $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file); 
+            $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file);
             $file = preg_replace('/\$\$demo_url\$\$/', base_url() . 'demo/', $file);
             $file = preg_replace('/\$\$live_url\$\$/', base_url(), $file);
             $data['project_' . $c] = parse_markdown_extra($file);

@@ -35,6 +35,7 @@ html, body {
   .brand {
     font-size: 2em;
     line-height: 1.5em;
+    margin-left: 2px;
     &:hover {
       color: @linkColor;
       text-decoration: none;
@@ -42,6 +43,7 @@ html, body {
   }
   .header-subtext {
     color: @gray;
+    margin-left: 1px;
     &:hover {
       color: @gray;
       text-decoration: none;
@@ -50,31 +52,31 @@ html, body {
 }
 
 footer {
-  position: relative;
   margin-top: -@footerHeight;
+  height: @footerHeight - 1em;
+  margin-bottom: 1em;
+  position: relative;
   .container {
     .well();
-  }
-}
-
-.social-media {
-  .thumbnails {
-    margin-left: 0;
-    li {
-      margin-left: @gridGutterWidth / 8;
-      i {
-        color: @navbarBackground;
-        font-size: 4.5em;
-        text-decoration: none;
-      }
-    }
-    &.top > li{
-      margin-bottom: @baseLineHeight / 4;
-    }
-    &.bottom {
-      margin-bottom: 0;
-      li {
+    height: @footerHeight - 3em;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 1em 0.5em;
+    .social-media {
+      .thumbnails {
+        margin-left: 0;
         margin-bottom: 0;
+        padding-bottom: 0;
+        li {
+          margin-left: @gridGutterWidth / 8;
+          margin-bottom: 0;
+          padding-bottom: 0;
+          i {
+            color: @navbarBackground;
+            font-size: 4.5em;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

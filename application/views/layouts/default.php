@@ -22,7 +22,7 @@
           <div class="container">
             <div class="row">
               <div class="span12 content text-center">
-                <div class="header-left">
+                <div class="header-left text-left">
                   <div>
                     <h3><a class="brand" href="<?=base_url()?>">gdm</a></h3>
                   </div>
@@ -64,11 +64,9 @@
     <footer class="footer">
       <div class="container">
         <div class="social-media pull-right">
-            <ul class="thumbnails top">
+            <ul class="thumbnails">
               <li><a href="http://www.github.com/gdmen"><i class="icon-github-sign"></i></a></li>
               <li><a href="http://lnkd.in/dmeQNq"><i class="icon-linkedin-sign"></i></a></li>
-            </ul>
-            <ul class="thumbnails bottom">
               <li><a href="http://www.facebook.com/gary.menezes"><i class="icon-facebook-sign"></i></a></li>
               <li><a href="https://plus.google.com/110541355401835851033"><i class="icon-google-plus-sign"></i></a></li>
             </ul>

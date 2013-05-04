@@ -5252,8 +5252,10 @@ a.badge:focus {
   border-radius: 6px;
 }
 .hero-unit h1 {
-  margin-bottom: 0;
-  font-size: 60px;
+  font-family: "Sansita One", cursive;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 50px;
   line-height: 1;
   color: inherit;
   letter-spacing: -1px;
@@ -5294,7 +5296,7 @@ body {
   height: 100%;
 }
 #content {
-  padding-bottom: 14em;
+  padding-bottom: 7.35em;
 }
 #header {
   background-color: #000;
@@ -5320,6 +5322,7 @@ body {
 #header .brand {
   font-size: 2em;
   line-height: 1.5em;
+  margin-left: 2px;
 }
 #header .brand:hover {
   color: #0088cc;
@@ -5327,14 +5330,17 @@ body {
 }
 #header .header-subtext {
   color: #555555;
+  margin-left: 1px;
 }
 #header .header-subtext:hover {
   color: #555555;
   text-decoration: none;
 }
 footer {
+  margin-top: -7.35em;
+  height: 6.35em;
+  margin-bottom: 1em;
   position: relative;
-  margin-top: -14em;
 }
 footer .container {
   min-height: 20px;
@@ -5348,28 +5354,27 @@ footer .container {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  height: 4.35em;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 1em 0.5em;
 }
 footer .container blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
 }
-.social-media .thumbnails {
+footer .container .social-media .thumbnails {
   margin-left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-.social-media .thumbnails li {
+footer .container .social-media .thumbnails li {
   margin-left: 2.5px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-.social-media .thumbnails li i {
+footer .container .social-media .thumbnails li i {
   color: #004467;
   font-size: 4.5em;
   text-decoration: none;
-}
-.social-media .thumbnails.top > li {
-  margin-bottom: 4.75px;
-}
-.social-media .thumbnails.bottom {
-  margin-bottom: 0;
-}
-.social-media .thumbnails.bottom li {
-  margin-bottom: 0;
 }

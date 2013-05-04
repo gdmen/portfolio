@@ -799,10 +799,6 @@
   }
 }
 @media (max-width: 767px) {
-  body {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
   .navbar-fixed-top,
   .navbar-fixed-bottom,
   .navbar-static-top {
@@ -822,6 +818,8 @@
     margin-left: 0;
   }
   .container {
+    padding-left: 20px;
+    padding-right: 20px;
     width: auto;
   }
   .row-fluid {
@@ -832,7 +830,6 @@
     margin-left: 0;
   }
   .thumbnails > li {
-    float: none;
     margin-left: 0;
   }
   [class*="span"],
