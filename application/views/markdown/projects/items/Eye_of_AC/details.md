@@ -8,6 +8,6 @@ Eye of AC is a Python script that wraps the AssaultCube client and parses the st
 
 The Python client is distributed as a binary for Linux and Windows. You can view the source [here](https://github.com/gdmen/EoAC).
 
-I built the web app from the ground up in PHP and LESS, backed by a MySQL database. I wrote the user login system from scratch for learning purposes. The python game clients upload screenshot data to a RESTful API and the screenshots are associated with users via a key system.
+I built the web app from the ground up in PHP and LESS, backed by a MySQL database. I wrote the user login system from scratch for learning/fun purposes. The Python game client uploads screenshot data to a RESTful API and the screenshots are associated with users via a key system.
 
 I'm not very good at UI design and execution, but I find it in some regards more rewarding than backend work. The result, when appealing, is a more visceral reward than having a program that works. Beautiful code comes pretty close, though!

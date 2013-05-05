@@ -5397,3 +5397,6 @@ footer .container .social-media .thumbnails li i {
   height: 100%;
   overflow: hidden;
 }
+strong {
+  color: #9d261d;
+}

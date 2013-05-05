@@ -41,10 +41,60 @@ class Pages extends CI_Controller {
     $this->layout->view('pages/home', $data);     // Render view and layout
 	}
 
-	public function blog($item)
+	public function blog($offset)
 	{
 	  $page = 'blog';
     $data['page'] = $page;
+    $posts_per_page = 3;
+    
+    $success = False;
+    
+    $data['posts'] = array();
+    $posts = array();
+    $num_posts = 0;
+    $dir = APPPATH . 'views/markdown/'. $page .'/items/';
+    // Get post paths
+    if (is_dir($dir)) {
+      // Sort posts by date & then get the offset segment
+      $posts =  glob($dir . '/*.{md}', GLOB_BRACE);
+      $num_posts = count($posts);
+      natsort($posts);
+      $posts = array_reverse($posts);
+      $posts = array_slice($posts, $offset, $posts_per_page);
+    }
+    
+    // Load selected posts
+    foreach ($posts as $file) {
+      if (file_exists($file)) {
+        $basename = basename($file, '.md');
+        $split = explode("_", $basename);
+        $date = date_create_from_format('Y-m-d', $split[0]);
+        $date = $date->format('d M Y');
+        $title = preg_replace('/-/', ' ', $split[1]);
+        $md = file_get_contents($file);
+        $post = parse_markdown_extra($md);
+        $data['posts'][] = ['title' => $title,
+                            'date' => $date,
+                            'post' => $post];
+        $success = True;
+      }
+    }
+    
+    if ( ! $success) {
+      show_404();
+    }
+    
+    $data['next'] = base_url() . $page . '/' .max(0, $offset - $posts_per_page);
+    $data['prev'] = base_url() . $page . '/' .min($num_posts-1, $offset + $posts_per_page);
+	  $this->layout->view('pages/blog', $data);
+	}
+
+	public function blog_post($year,$month,$day,$name)
+	{
+	  $page = 'post';
+    $data['page'] = $page;
+    $posts_per_page = 5;
+    
     $success = True;
     
     // Load menu
@@ -81,7 +131,6 @@ class Pages extends CI_Controller {
       show_404();
     }
     
-    $data['page'] = $page;
     $data['active'] = $item;
 	  $this->layout->view('pages/blog', $data);
 	}
@@ -146,6 +195,9 @@ class Pages extends CI_Controller {
       }
       */
     } else {
+      $this->layout->js(base_url().'assets/js/jquery.fancybox.js');
+      $this->layout->css(base_url().'assets/css/jquery.fancybox.css');
+      
       $dir = APPPATH . 'views/markdown/'. $page .'/items/' . $project;
       $data['project_menu'] = array();
       // Load project

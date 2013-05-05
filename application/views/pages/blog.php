@@ -1,12 +1,11 @@
 <div class="row">
-  <div class="span9 content"><?=$content?></div>
-  <div class="span3">
-    <div class="well sidebar-nav">
-      <ul class="nav nav-list">
-        <?php foreach ($menu as $title) {?>
-          <li <?php if($title === $active) echo 'class="active"';?>><a href="<?=base_url()?>blog/<?=$title?>"><?=preg_replace('/_/', ' ', $title)?></a></li>
-        <?php } ?>
-      </ul>
-    </div><!--/.well -->
-  </div>
+  <?php foreach ($posts as $post) {?>
+    <div class="container">
+      <?=$post['title']?>
+      <?=$post['date']?>
+      <?=$post['post']?>
+    </div>
+  <?php } ?>
+  <a href="<?=$prev?>">prev</a>
+  <a href="<?=$next?>">next</a>
 </div>

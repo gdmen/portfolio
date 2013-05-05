@@ -39,10 +39,15 @@
 */
 $route['projects/content/piano/pitches/(:any)'] = "fileserv/Flash_Piano/$1";
 
-$route['blog'] = "pages/blog/";
+$route['blog'] = "pages/blog/0";
+$route['blog/(:year)/(:month)/(:day)/(:name)'] = "pages/blog_post/$1/$2/$3/$4";
 $route['blog/(:any)'] = "pages/blog/$1";
+
+
 $route['projects'] = "pages/projects/";
+//TODO: move to singular controller
 $route['projects/(:any)'] = "pages/projects/$1";
+
 $route['photography'] = "pages/photography/";
 $route['default_controller'] = "pages";
 $route['404_override'] = '';

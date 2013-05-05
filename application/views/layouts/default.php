@@ -79,7 +79,12 @@
     <script type="text/javascript">
 	    $(document).ready(function() {
 	      if ($(".fancybox")[0]){
-		      $(".fancybox").fancybox();
+		      $(".fancybox").fancybox(
+		        {
+		          nextEffect : 'none',
+		          prevEffect : 'none'
+		        }
+	        );
         }
 	    });
     </script>
