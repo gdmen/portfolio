@@ -5307,22 +5307,7 @@ body {
 #header {
   background-color: #000;
   background-image: url("../img/dvsup.png");
-  overflow: hidden;
-  padding-top: 3em;
-}
-#header .header-left {
-  position: absolute;
-}
-#header .header-image {
-  -webkit-border-radius: 5em;
-  -moz-border-radius: 5em;
-  border-radius: 5em;
-  -webkit-box-shadow: 8px;
-  -moz-box-shadow: 8px;
-  box-shadow: 8px;
-  height: 10em;
-  margin-bottom: -1em;
-  overflow: hidden;
+  padding-bottom: 1em;
 }
 #header .brand {
   font-family: "Sansita One", cursive;
@@ -5335,16 +5320,13 @@ body {
   text-decoration: none;
 }
 #header .header-subtext {
-  font-family: "Sansita One", cursive;
   color: #555555;
+  font-family: "Sansita One", cursive;
   margin-left: 1px;
 }
 #header .header-subtext:hover {
-  color: #555555;
+  color: #0088cc;
   text-decoration: none;
-}
-.navbar i {
-  padding-right: 0.5em;
 }
 footer {
   margin-top: -5.95em;
@@ -5390,6 +5372,36 @@ footer .container .social-media .thumbnails li i {
   font-size: 3em;
   text-decoration: none;
 }
+.blog {
+  padding-bottom: 19px;
+}
+.blog .blog-title {
+  text-transform: capitalize;
+}
+.blog .blog-date {
+  color: #555555;
+}
+.blog .blog-date i {
+  padding-right: 0.5em;
+}
+.blog .blog-nav a {
+  text-transform: uppercase;
+}
+.blog .blog-nav a i {
+  vertical-align: middle;
+}
+.blog .blog-nav a.left {
+  float: left;
+}
+.blog .blog-nav a.left i {
+  padding-right: 0.5em;
+}
+.blog .blog-nav a.right {
+  float: right;
+}
+.blog .blog-nav a.right i {
+  padding-left: 0.5em;
+}
 .photography-header {
   text-transform: capitalize;
 }
@@ -5398,5 +5410,5 @@ footer .container .social-media .thumbnails li i {
   overflow: hidden;
 }
 strong {
-  color: #9d261d;
+  color: #d83a2e;
 }

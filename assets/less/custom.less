@@ -18,18 +18,9 @@ html, body {
 #header{
   background-color: #000;
   background-image: url(@headerBackgroundImage);
-  overflow: hidden;
-  padding-top: 3em;
+  padding-bottom: 1em;
 
   .header-left {
-    position: absolute;
-  }
-  .header-image {
-    .border-radius(@headerImageHeight/2);
-	  .box-shadow(8px);
-    height: @headerImageHeight;
-    margin-bottom: -1em;
-    overflow: hidden;
   }
   .brand {
     font-family: "Sansita One", cursive;
@@ -42,19 +33,13 @@ html, body {
     }
   }
   .header-subtext {
-    font-family: "Sansita One", cursive;
     color: @gray;
+    font-family: "Sansita One", cursive;
     margin-left: 1px;
     &:hover {
-      color: @gray;
+      color: @linkColor;
       text-decoration: none;
     }
-  }
-}
-
-.navbar {
-  i {
-    padding-right: 0.5em;
   }
 }
 
@@ -89,8 +74,41 @@ footer {
   }
 }
 
+.blog {
+  padding-bottom: @baseLineHeight;
+  .blog-title {
+    text-transform: capitalize;
+  }
+  .blog-date {
+    color: @gray;
+    i {
+      padding-right: 0.5em;
+    }
+  }
+  .blog-nav {
+    a {
+      text-transform: uppercase;
+      i {
+        vertical-align: middle;
+      }
+      &.left {
+        float: left;
+        i {
+          padding-right: 0.5em;
+        }
+      }
+      &.right {
+        float: right;
+        i {
+          padding-left: 0.5em;
+        }
+      }
+    }
+  }
+}
+
 .photography-header {
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 .stop-scrolling {

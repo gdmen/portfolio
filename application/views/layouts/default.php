@@ -22,30 +22,25 @@
           <div class="container">
             <div class="row">
               <div class="span12 content text-center">
-                <div class="header-left text-left">
-                  <div>
-                    <h3><a class="brand" href="<?=base_url()?>">gdm</a></h3>
-                  </div>
-                  <div>
-                    <a class="header-subtext" href="mailto:gmenezes@seas.upenn.edu">gmenezes@seas.upenn.edu</a>
-                  </div>
+                <div>
+                  <h3><a class="brand" href="<?=base_url()?>">Gary Menezes</a></h3>
                 </div>
-                <div><a href="<?=base_url()?>"><img class="header-image grayscale" src="<?=base_url()?>/assets/img/headshot.jpg"></a></div>
+                <div>
+                  <a class="header-subtext" href="mailto:gmenezes@seas.upenn.edu">gmenezes@seas.upenn.edu</a>
+                </div>
               </div>
-            <!--
-            -->
             </div>
           </div>
         </div>
           
         <div class="navbar navbar-top">
           <div class="navbar-inner">
-              <ul class="nav">
-                <li <?=active($page,1)?>><a href="<?=base_url()?>"><h4>Home</h4></a></li>
-                <li <?=active($page,2)?>><a href="<?=base_url()?>projects"><h4>Projects</h4></a></li>
-                <li <?=active($page,3)?>><a href="<?=base_url()?>photography"><h4>Photography</h4></a></li>
-                <li <?=active($page,4)?>><a href="<?=base_url()?>blog"><h4>Blog</h4></a></li>
-              </ul>
+            <ul class="nav">
+              <li <?=active($page,1)?>><a href="<?=base_url()?>"><h4>Home</h4></a></li>
+              <li <?=active($page,2)?>><a href="<?=base_url()?>projects"><h4>Projects</h4></a></li>
+              <li <?=active($page,3)?>><a href="<?=base_url()?>photography"><h4>Photography</h4></a></li>
+              <li <?=active($page,4)?>><a href="<?=base_url()?>blog"><h4>Blog</h4></a></li>
+            </ul>
           </div>
         </div>
         

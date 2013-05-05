@@ -45,7 +45,7 @@ class Pages extends CI_Controller {
 	{
 	  $page = 'blog';
     $data['page'] = $page;
-    $posts_per_page = 1;
+    $posts_per_page = 3;
     
     $success = False;
     
@@ -60,6 +60,8 @@ class Pages extends CI_Controller {
       $num_posts = count($posts);
       natsort($posts);
       $posts = array_reverse($posts);
+      // Fix invalid <$offset>
+      $offset = ($offset > $num_posts - 1) ? $num_posts - ($num_posts % $posts_per_page) : max(0, $offset);
       $posts = array_slice($posts, $offset, $posts_per_page);
     }
     

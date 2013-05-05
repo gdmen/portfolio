@@ -3,6 +3,6 @@ I'm a $$age$$ year old [Computer and Information Science](http://www.cis.upenn.e
 
 This summer, I'll be a **Software Engineering Intern** at [TellApart](tellapart.com), a [behavioral retargeting](http://en.wikipedia.org/wiki/Behavioral_retargeting) startup just south of San Francisco. I'm going to be working primarily with [Trevor Reid](http://www.linkedin.com/profile/view?id=100712316) to build out the data handling and UI of their in-house analytics tools.
 
-**This website** is my first foray into [CodeIgniter](http://ellislab.com/codeigniter). It's been pretty straightforward since I recently picked up [RoR](http://rubyonrails.org/) and the two frameworks are structured very similarly. The copy for this website is primarily [Markdown](http://daringfireball.net/projects/markdown/) based, organized and renered via a mildly hacky directory structure and naming convention system.
+**This website** is my first foray into [CodeIgniter](http://ellislab.com/codeigniter). It's been pretty straightforward since I recently picked up [RoR](http://rubyonrails.org/) and the two frameworks are structured very similarly. The copy for this website is primarily [Markdown](http://daringfireball.net/projects/markdown/) based, organized and rendered via a mildly hacky directory structure and naming convention system.
 
 When I'm not writing code, I spend my **free time** eating enough, [lifting](https://www.fitocracy.com/profile/gdm), and [learning judo](https://www.facebook.com/groups/27037956862)!
