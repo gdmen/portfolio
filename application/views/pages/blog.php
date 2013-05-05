@@ -6,6 +6,6 @@
       <?=$post['post']?>
     </div>
   <?php } ?>
-  <a href="<?=$prev?>">prev</a>
-  <a href="<?=$next?>">next</a>
+  <a href="<?php echo isset($old) ? $old : '#'; ?>">old</a>
+  <a href="<?php echo isset($new) ? $new : '#'; ?>">new</a>
 </div>

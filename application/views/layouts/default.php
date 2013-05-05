@@ -33,13 +33,6 @@
                 <div><a href="<?=base_url()?>"><img class="header-image grayscale" src="<?=base_url()?>/assets/img/headshot.jpg"></a></div>
               </div>
             <!--
-              <div class="span12 content">
-                <div class=" text-center"><a href="<?=base_url()?>"><img class="rounded-image grayscale" src="assets/img/headshot.jpg"></a></div>
-                <div><h3><a class="brand" href="<?=base_url()?>">gdm</a></h3></div>
-                <div>
-                  gmenezes@seas.upenn.edu
-                </div>
-              </div>
             -->
             </div>
           </div>

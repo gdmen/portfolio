@@ -5302,7 +5302,7 @@ body {
   height: 100%;
 }
 #content {
-  padding-bottom: 7.35em;
+  padding-bottom: 5.95em;
 }
 #header {
   background-color: #000;
@@ -5347,8 +5347,8 @@ body {
   padding-right: 0.5em;
 }
 footer {
-  margin-top: -7.35em;
-  height: 6.35em;
+  margin-top: -5.95em;
+  height: 4.95em;
   margin-bottom: 1em;
   position: relative;
 }
@@ -5364,7 +5364,7 @@ footer .container {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  height: 4.35em;
+  height: 2.95em;
   min-height: 0;
   margin: 0 auto;
   padding: 1em;
@@ -5387,7 +5387,7 @@ footer .container .social-media .thumbnails li {
 }
 footer .container .social-media .thumbnails li i {
   color: #004467;
-  font-size: 4.5em;
+  font-size: 3em;
   text-decoration: none;
 }
 .photography-header {

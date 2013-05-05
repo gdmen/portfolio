@@ -45,7 +45,7 @@ class Pages extends CI_Controller {
 	{
 	  $page = 'blog';
     $data['page'] = $page;
-    $posts_per_page = 3;
+    $posts_per_page = 1;
     
     $success = False;
     
@@ -83,9 +83,12 @@ class Pages extends CI_Controller {
     if ( ! $success) {
       show_404();
     }
-    
-    $data['next'] = base_url() . $page . '/' .max(0, $offset - $posts_per_page);
-    $data['prev'] = base_url() . $page . '/' .min($num_posts-1, $offset + $posts_per_page);
+    if ($offset > 0) {
+      $data['new'] = base_url() . $page . '/' . max(0, $offset - $posts_per_page);
+    }
+    if ($offset + $posts_per_page < $num_posts) {
+      $data['old'] = base_url() . $page . '/' . ($offset + $posts_per_page);
+    }
 	  $this->layout->view('pages/blog', $data);
 	}
 
