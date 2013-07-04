@@ -13,7 +13,7 @@
     <?php if(isset($project_technologies)) {?>
       <?php foreach($project_technologies as $technology) {?>
         <span class="label label-inverse"><?=trim($technology)?></span>
-      <? } ?>
+      <?php } ?>
     <?php } ?>
     <?php if(isset($project_authors)) {?>
       <div id="authors" name="authors">
