@@ -269,7 +269,7 @@ class Pages extends CI_Controller {
     
     $data['images'] = array();
     $dir = 'assets/content/photography';
-    // Load project
+    // Load pictures
     if (is_dir($dir)) {
       foreach (new DirectoryIterator($dir) as $subdir) {
         if($subdir->isDir() && !$subdir->isDot()) {

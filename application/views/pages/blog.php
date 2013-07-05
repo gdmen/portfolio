@@ -1,8 +1,5 @@
 <div class="row">
-  <div class="span4 blog-menu">
-    hallo
-  </div>
-  <div class="span8 blog">
+  <div class="span9 offset1 blog">
     <?php foreach ($posts as $post) {?>
       <div class="well">
         <h1 class="blog-title"><?=$post['title']?></h1>
@@ -18,5 +15,8 @@
       <a class="btn btn-large right" href="<?=$new?>">Newer<i class="icon-chevron-right"></i></a>
       <?php } ?>
     </div>
+  </div>
+  <div class="span2 blog-menu">
+    hallo
   </div>
 </div>
