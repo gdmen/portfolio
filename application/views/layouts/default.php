@@ -48,7 +48,7 @@
           <?=$content_for_layout?>
         </div>
       </div>
-    </div><!--/wrap -->
+    </div><!--/non-footer -->
     
     <footer class="footer">
       <div class="container">

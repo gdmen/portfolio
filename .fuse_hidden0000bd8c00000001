@@ -1,4 +1,0 @@
-#!/bin/sh
-while inotifywait -e modify -e create -e delete assets/less; do
-    lessc assets/less/*.less > assets/css/styles.css
-done
