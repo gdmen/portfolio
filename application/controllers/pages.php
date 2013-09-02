@@ -5,9 +5,11 @@ class Pages extends CI_Controller {
 	public function __construct()
 	{
 		parent:: __construct();
-    
+
+    $this->demo_url = 'http://archive.garymenezes.com/';
+
     $this->load->spark('markdown-extra/0.0.0');
-		
+
 		$this->layout->title("Gary Menezes");
     $this->layout->js(base_url().'assets/js/jquery.min.js');
     $this->layout->js(base_url().'assets/js/bootstrap.js');
@@ -19,7 +21,7 @@ class Pages extends CI_Controller {
 
 	public function index()
   {
-    $data['page'] = 'home';
+    $data['page'] = 'employment';
     
     $blurb_file = APPPATH . 'views/markdown/static/home.md';
     $data['blurb'] = '';
@@ -41,103 +43,52 @@ class Pages extends CI_Controller {
     $this->layout->view('pages/home', $data);     // Render view and layout
 	}
 
-	public function blog($offset)
-	{
-	  $page = 'blog';
-    $data['page'] = $page;
-    $posts_per_page = 3;
+	public function employment()
+  {
+    $data['page'] = 'employment';
     
-    $success = False;
+    $blurb_file = APPPATH . 'views/markdown/static/home.md';
+    $data['blurb'] = '';
+    // Load blurb
+    if (file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
+      $dob = new DateTime('1992-2-17');
+      $blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $blurb_file); 
+      $data['blurb'] = parse_markdown_extra($blurb_file);
+    }
+      
+    // array of highlight elements on the front page
+    $data['highlights'] = array();
     
-    $data['posts'] = array();
-    $posts = array();
-    $num_posts = 0;
-    $dir = APPPATH . 'views/markdown/'. $page .'/items/';
-    // Get post paths
-    if (is_dir($dir)) {
-      // Sort posts by date & then get the offset segment
-      $posts =  glob($dir . '/*.{md}', GLOB_BRACE);
-      $num_posts = count($posts);
-      natsort($posts);
-      $posts = array_reverse($posts);
-      // Fix invalid <$offset>
-      $offset = ($offset > $num_posts - 1) ? $num_posts - ($num_posts % $posts_per_page) : max(0, $offset);
-      $posts = array_slice($posts, $offset, $posts_per_page);
-    }
+    // add most recent blog post
     
-    // Load selected posts
-    foreach ($posts as $file) {
-      if (file_exists($file)) {
-        $basename = basename($file, '.md');
-        $split = explode("_", $basename);
-        $date = date_create_from_format('Y-m-d', $split[0]);
-        $date = $date->format('d M Y');
-        $title = preg_replace('/-/', ' ', $split[1]);
-        $md = file_get_contents($file);
-        $post = parse_markdown_extra($md);
-        $data['posts'][] = ['title' => $title,
-                            'date' => $date,
-                            'post' => $post];
-        $success = True;
-      }
-    }
+    // add first project
     
-    if ( ! $success) {
-      show_404();
-    }
-    if ($offset > 0) {
-      $data['new'] = base_url() . $page . '/' . max(0, $offset - $posts_per_page);
-    }
-    if ($offset + $posts_per_page < $num_posts) {
-      $data['old'] = base_url() . $page . '/' . ($offset + $posts_per_page);
-    }
-	  $this->layout->view('pages/blog', $data);
+    // 
+    $this->layout->view('pages/home', $data);     // Render view and layout
 	}
 
-	public function blog_post($year,$month,$day,$name)
-	{
-	  $page = 'post';
-    $data['page'] = $page;
-    $posts_per_page = 5;
+	public function education()
+  {
+    $data['page'] = 'education';
     
-    $success = True;
-    
-    // Load menu
-    $menu = APPPATH . 'views/markdown/'. $page .'/menu';
-    if (file_exists($menu)) {
-      $data['menu'] = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
-    } else {
-      $success = False;
+    $blurb_file = APPPATH . 'views/markdown/static/home.md';
+    $data['blurb'] = '';
+    // Load blurb
+    if (file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
+      $dob = new DateTime('1992-2-17');
+      $blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $blurb_file); 
+      $data['blurb'] = parse_markdown_extra($blurb_file);
     }
+      
+    // array of highlight elements on the front page
+    $data['highlights'] = array();
     
-    $file = APPPATH . 'views/markdown/'. $page .'/items/';
-    // Load default post
-    if ($item === "") {
-      if (count($data['menu']) > 0) {
-        $item = $data['menu'][0];
-        $file .= $item . '.md';
-      } else {
-        $success = False;
-      }
-    } else {
-      $file .= $item . '.md';
-    }
+    // add most recent blog post
     
-    // Load post
-    // TODO: Add support for repeated titles
-    if (file_exists($file)) {
-      $md = file_get_contents($file);
-      $data['content'] = parse_markdown_extra($md);
-    } else {
-      $success = False;
-    }
+    // add first project
     
-    if ( ! $success) {
-      show_404();
-    }
-    
-    $data['active'] = $item;
-	  $this->layout->view('pages/blog', $data);
+    // 
+    $this->layout->view('pages/home', $data);     // Render view and layout
 	}
 
 	public function projects($project)
@@ -213,8 +164,7 @@ class Pages extends CI_Controller {
           $file = $dir . '/'. $c .'.md';
           if (file_exists($file) && ($file = file_get_contents($file)) !== "") {
             $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file);
-            $file = preg_replace('/\$\$demo_url\$\$/', base_url() . 'demo/', $file);
-            $file = preg_replace('/\$\$live_url\$\$/', base_url(), $file);
+            $file = preg_replace('/\$\$demo_url\$\$/', $this->demo_url, $file);
             $data['project_' . $c] = parse_markdown_extra($file);
             // Special formatting
             if ($c != 'authors') {
@@ -227,8 +177,7 @@ class Pages extends CI_Controller {
           if (file_exists($file)) {
             $file = file_get_contents($file);
             $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file); 
-            $file = preg_replace('/\$\$demo_url\$\$/', base_url() . 'demo/', $file);
-            $file = preg_replace('/\$\$live_url\$\$/', base_url() . '/', $file);
+            $file = preg_replace('/\$\$demo_url\$\$/', $this->demo_url, $file);
             
             // Special formatting
             if ($c === 'technologies') {

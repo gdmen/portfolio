@@ -4,16 +4,13 @@ function active($name, $number)
 {
 	$ci = get_instance();
 
-	if($name == 'home' && $number == 1) {
+	if($name == 'projects' && $number == 1) {
 		return "class='active'";
 	}
-	elseif(($name=="projects") && $number == 2) {
+	elseif(($name=="employment") && $number == 2) {
 		return "class='active'";
 	}
-	elseif(($name=="photography") && $number == 3) {
-		return "class='active'";
-	}
-	elseif($name=="blog" && $number == 4) {
+	elseif(($name=="education") && $number == 3) {
 		return "class='active'";
 	}
 }

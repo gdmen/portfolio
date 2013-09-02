@@ -37,18 +37,17 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+
 $route['projects/content/piano/pitches/(:any)'] = "fileserv/Flash_Piano/$1";
-
-$route['blog'] = "pages/blog/0";
-$route['blog/(:year)/(:month)/(:day)/(:name)'] = "pages/blog_post/$1/$2/$3/$4";
-$route['blog/(:any)'] = "pages/blog/$1";
-
 
 $route['projects'] = "pages/projects/";
 //TODO: move to singular controller
 $route['projects/(:any)'] = "pages/projects/$1";
 
-$route['default_controller'] = "pages";
+$route['employment'] = "pages/employment/";
+$route['education'] = "pages/education/";
+
+$route['default_controller'] = "pages/projects/";
 $route['404_override'] = '';
 
 
