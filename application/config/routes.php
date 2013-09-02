@@ -48,7 +48,6 @@ $route['projects'] = "pages/projects/";
 //TODO: move to singular controller
 $route['projects/(:any)'] = "pages/projects/$1";
 
-$route['photography'] = "pages/photography/";
 $route['default_controller'] = "pages";
 $route['404_override'] = '';
 

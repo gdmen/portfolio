@@ -9,7 +9,7 @@ class Pages extends CI_Controller {
     $this->load->spark('markdown-extra/0.0.0');
 		
 		$this->layout->title("Gary Menezes");
-    $this->layout->js(base_url().'/assets/js/jquery.min.js');
+    $this->layout->js(base_url().'assets/js/jquery.min.js');
     $this->layout->js(base_url().'assets/js/bootstrap.js');
     //$this->layout->js(base_url().'assets/js/custom.js');
     $this->layout->css(base_url().'assets/css/styles.css');
@@ -246,47 +246,6 @@ class Pages extends CI_Controller {
       }
 	    $this->layout->view('pages/project', $data);
 	  }
-	}
-
-	public function photography()
-  {
-    $this->layout->js(base_url().'assets/js/jquery.fancybox.js');
-    $this->layout->css(base_url().'assets/css/jquery.fancybox.css');
-    $data['page'] = 'photography';
-    
-    $success = True;
-    
-    $blurb_file = APPPATH . 'views/markdown/static/photography.md';
-    $data['blurb'] = '';
-    // Load blurb
-    if (file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
-      $dob = new DateTime('1992-2-17');
-      $blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $blurb_file); 
-      $data['blurb'] = parse_markdown_extra($blurb_file);
-    } else {
-      $success = False;
-    }
-    
-    $data['images'] = array();
-    $dir = 'assets/content/photography';
-    // Load pictures
-    if (is_dir($dir)) {
-      foreach (new DirectoryIterator($dir) as $subdir) {
-        if($subdir->isDir() && !$subdir->isDot()) {
-          // get images in gallery
-          $images =  glob($subdir->getPathname() . '/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF}', GLOB_BRACE);
-          natsort($images);
-          $data['images'][$subdir->getFilename()] = $images;
-        }
-      }
-    } else {
-      $success = False;
-    }
-    
-    if (!$success) {
-      show_404();
-    }
-    $this->layout->view('pages/photography', $data);
 	}
 }
 /* End of file pages.php */

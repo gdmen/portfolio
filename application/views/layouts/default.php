@@ -38,7 +38,6 @@
             <ul class="nav">
               <li <?=active($page,1)?>><a href="<?=base_url()?>"><h4>Home</h4></a></li>
               <li <?=active($page,2)?>><a href="<?=base_url()?>projects"><h4>Projects</h4></a></li>
-              <!-- <li <?=active($page,3)?>><a href="<?=base_url()?>photography"><h4>Photography</h4></a></li> -->
               <li <?=active($page,4)?>><a href="<?=base_url()?>blog"><h4>Blog</h4></a></li>
             </ul>
           </div>
