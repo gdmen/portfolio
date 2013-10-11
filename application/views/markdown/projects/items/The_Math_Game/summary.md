@@ -1,1 +1,1 @@
-summary
+The Math Game teaches simple math using youtube videos as motivation.

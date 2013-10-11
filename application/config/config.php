@@ -14,7 +14,6 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/portfolio/';
 $config['base_url']	= 'http://portfolio.garymenezes.com/';
 
 /*

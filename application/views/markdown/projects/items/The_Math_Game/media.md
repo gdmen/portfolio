@@ -1,7 +1,19 @@
 <div class="project-media-element">
-  <div class="flash-embed-container">
-    <iframe width="800" height="450" src="http://www.youtube-nocookie.com/embed/Ytpb35VO4gI?wmode=transparent&amp;fs=1&amp;hl=en_US&amp;rel=0&amp;controls=0" frameborder="0"></iframe>
-  </div>
+  <ul class="thumbnails">
+    <li class="span3">
+      <a href="$$content_url$$The_Math_Game/problem.png" rel="media" class="thumbnail fancybox">
+        <img src="$$content_url$$The_Math_Game/thumbs/t-problem.png">
+      </a>
+    </li>
+    <li class="span3">
+      <a href="$$content_url$$The_Math_Game/video.png" rel="media" class="thumbnail fancybox">
+        <img src="$$content_url$$The_Math_Game/thumbs/t-video.png">
+      </a>
+    </li>
+    <li class="span3">
+      <a href="$$content_url$$The_Math_Game/statistics.png" rel="media" class="thumbnail fancybox">
+        <img src="$$content_url$$The_Math_Game/thumbs/t-statistics.png">
+      </a>
+    </li>
+  </ul>
 </div>
-
-<div class="project-media-element"><img src="$$content_url$$Decider/decider.png" /></div>

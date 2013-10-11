@@ -53,11 +53,11 @@
       <div class="container">
         <div class="social-media">
             <ul class="thumbnails">
-              <li><a href="http://www.github.com/gdmen"><i class="icon-github-sign"></i></a></li>
-              <li><a href="http://lnkd.in/dmeQNq"><i class="icon-linkedin-sign"></i></a></li>
-              <li><a href="mailto:gmenezes@seas.upenn.edu"><i class="icon-envelope"></i></a></li>
-              <li><a href="http://www.facebook.com/gary.menezes"><i class="icon-facebook-sign"></i></a></li>
               <li><a href="https://plus.google.com/110541355401835851033"><i class="icon-google-plus-sign"></i></a></li>
+              <li><a href="http://www.facebook.com/gary.menezes"><i class="icon-facebook-sign"></i></a></li>
+              <li><a href="mailto:gmenezes@seas.upenn.edu"><i class="icon-envelope"></i></a></li>
+              <li><a href="http://lnkd.in/dmeQNq"><i class="icon-linkedin-sign"></i></a></li>
+              <li><a href="http://www.github.com/gdmen"><i class="icon-github-sign"></i></a></li>
             </ul>
         </div>
       </div>

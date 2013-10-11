@@ -1,2 +1,1 @@
-* one
-* two
+* See github issue tracker
