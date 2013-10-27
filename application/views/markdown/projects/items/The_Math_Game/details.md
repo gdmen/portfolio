@@ -1,1 +1,0 @@
-Users answer a configurable number of math problems and are rewarded with a choice of childrens' songs to watch!

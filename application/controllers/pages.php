@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
 
@@ -26,7 +26,7 @@ class Pages extends CI_Controller {
     $blurb_file = APPPATH . 'views/markdown/static/home.md';
     $data['blurb'] = '';
     // Load blurb
-    if (file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
+    if(file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
       $dob = new DateTime('1992-2-17');
       $blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $blurb_file); 
       $data['blurb'] = parse_markdown_extra($blurb_file);
@@ -45,36 +45,81 @@ class Pages extends CI_Controller {
 
 	public function employment()
   {
-    $data['page'] = 'employment';
+	  $page = 'employment';
+    $data['page'] = $page;
     
-    $blurb_file = APPPATH . 'views/markdown/static/home.md';
-    $data['blurb'] = '';
-    // Load blurb
-    if (file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
-      $dob = new DateTime('1992-2-17');
-      $blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $blurb_file); 
-      $data['blurb'] = parse_markdown_extra($blurb_file);
+    // Load menu
+    // menu element = [<page url>, <thumbnail url>, <title>]
+    $data['items'] = array();
+    
+    $menu_items = array();
+    $menu = APPPATH . 'views/markdown/'. $page .'/menu';
+    if(file_exists($menu)) {
+      $menu_items = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
+    } else {
+      show_404();
     }
-      
-    // array of highlight elements on the front page
-    $data['highlights'] = array();
+    $thumbnails =  glob('assets/img/thumbnails/'. $page .'/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF}', GLOB_BRACE);
+    // TODO: improve the logic here - O(n^2) atm
+    foreach($menu_items as $item) {
+      foreach($thumbnails as $image_path) {
+        $project_title = basename($image_path, '.' . pathinfo($image_path)['extension']);
+        if($project_title === $item) {
+          $data['items'][$item] = [base_url() . $page . '#' . $item,
+                             $image_path,
+                             $item];
+        }
+      }
+    }
     
-    // add most recent blog post
+    //$this->layout->js(base_url().'assets/js/jquery.fancybox.js');
+    //$this->layout->css(base_url().'assets/css/jquery.fancybox.css');
     
-    // add first project
-    
-    // 
-    $this->layout->view('pages/home', $data);     // Render view and layout
+    // Load content for each menu item
+    foreach($data['items'] as $menu_data) {
+      $item_name = $menu_data[2];
+      $file = APPPATH . 'views/markdown/'. $page .'/items/' . $item_name . ".md";
+      // Load project
+      if(is_file($file)) {
+        if(($text = file_get_contents($file)) !== "") {
+          $text = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $text);
+          $text = preg_replace('/\$\$demo_url\$\$/', $this->demo_url, $text);
+          $section_blob = "";
+          $section_title = "";
+          foreach(preg_split("/((\r?\n)|(\r\n?))/", $text) as $line) {
+            if(preg_match("/^----(.*)----$/", $line, $match)) {
+              if($section_title !== "" && $section_blob !== ""){
+                $parsed_blob = "";
+                if($section_title == "body") {
+                  $parsed_blob = parse_markdown_extra($section_blob);
+                } else {
+                  $parsed_blob = $section_blob;
+                }
+                $data['items'][$item_name][$section_title] = trim($parsed_blob);
+                $section_blob = "";
+              }
+              $section_title = strtolower($match[1]);
+            } else {
+              $section_blob .= $line . "\n";
+            }
+          }
+        }
+      } else {
+        show_404();
+      }
+    }
+    $this->layout->view('pages/employment', $data);
 	}
 
 	public function education()
   {
-    $data['page'] = 'education';
+	  $page = 'education';
+    $data['page'] = $page;
     
     $blurb_file = APPPATH . 'views/markdown/static/home.md';
     $data['blurb'] = '';
     // Load blurb
-    if (file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
+    if(file_exists($blurb_file) && ($blurb_file = file_get_contents($blurb_file)) !== "") {
       $dob = new DateTime('1992-2-17');
       $blurb_file = preg_replace('/\$\$age\$\$/', $dob->diff(new DateTime())->format('%Y%'), $blurb_file); 
       $data['blurb'] = parse_markdown_extra($blurb_file);
@@ -88,17 +133,16 @@ class Pages extends CI_Controller {
     // add first project
     
     // 
-    $this->layout->view('pages/home', $data);     // Render view and layout
+    $this->layout->view('pages/education', $data);     // Render view and layout
 	}
 
 	public function projects($project)
 	{
 	  $page = 'projects';
     $data['page'] = $page;
-    $success = True;
     
     // If no project selected
-    if ($project === "") {
+    if($project === "") {
       // Load menu
       // menu element = [<page url>, <thumbnail url>, <title>, <thumbnail size>, <caption size>]
       $data['menu'] = array();
@@ -106,9 +150,9 @@ class Pages extends CI_Controller {
       // get name, size, and (implicitly) ordering of project menu items
       $menu_config = array();
       $menu = APPPATH . 'views/markdown/'. $page .'/menu';
-      if (file_exists($menu)) {
+      if(file_exists($menu)) {
         $menu_config_lines = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
-        foreach ($menu_config_lines as $line) {
+        foreach($menu_config_lines as $line) {
           $split = explode(' ', $line);
           $menu_config[$split[1]] = $split;
         }
@@ -117,14 +161,14 @@ class Pages extends CI_Controller {
       }
       
       // save menu elements
-      $thumbnails =  glob('assets/img/thumbnails/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF}', GLOB_BRACE);
+      $thumbnails =  glob('assets/img/thumbnails/'. $page .'/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF}', GLOB_BRACE);
       // TODO: improve the logic here - O(n^2) atm
       $current_row = -1;
-      foreach ($menu_config as $key => $menu_element) {
-        foreach ($thumbnails as $image_path) {
+      foreach($menu_config as $key => $menu_element) {
+        foreach($thumbnails as $image_path) {
           $project_title = basename($image_path, '.' . pathinfo($image_path)['extension']);
-          if ($project_title === $key) {
-            if ($menu_element[0] === "1") {
+          if($project_title === $key) {
+            if($menu_element[0] === "1") {
               $current_row += 1;
             }
             $data['menu'][$current_row][] = [base_url() . $page . '/' . $menu_element[1],
@@ -134,63 +178,51 @@ class Pages extends CI_Controller {
                                              $menu_element[3],
                                              $menu_element[0]];
           }
-          //$data['menu'][] = [base_url() . $page . '/' . $project_title,
-          //                   $image_path,
-          //                   preg_replace('/_/', ' ', $project_title)];
         }
       }
       $this->layout->view('pages/projects', $data);
-      /*
-      $menu = APPPATH . 'views/markdown/'. $page .'/menu';
-      if (file_exists($menu)) {
-        $data['menu'] = preg_split('/[\n|\r]+/', file_get_contents($menu), -1, PREG_SPLIT_NO_EMPTY);
-        $data['content'] = "x";
-	      $this->layout->view('pages/projects', $data);
-      } else {
-        show_404();
-      }
-      */
     } else {
+      $project_config = array(
+          'plaintext' => ['title', 'links', 'technologies'],
+          'md' => ['authors', 'summary', 'features', 'details', 'bugs', 'media'],
+          'menu' => ['summary', 'features', 'details', 'bugs', 'media']
+        );
       $this->layout->js(base_url().'assets/js/jquery.fancybox.js');
       $this->layout->css(base_url().'assets/css/jquery.fancybox.css');
       
-      $dir = APPPATH . 'views/markdown/'. $page .'/items/' . $project;
+      $file = APPPATH . 'views/markdown/'. $page .'/items/' . $project . ".md";
       $data['project_menu'] = array();
       // Load project
-      if (is_dir($dir)) {
-        $mds = ['authors', 'summary', 'features', 'details', 'bugs', 'media'];
-        $plaintexts = ['title', 'links', 'technologies'];
-        foreach ($mds as $c) {
-          $file = $dir . '/'. $c .'.md';
-          if (file_exists($file) && ($file = file_get_contents($file)) !== "") {
-            $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file);
-            $file = preg_replace('/\$\$demo_url\$\$/', $this->demo_url, $file);
-            $data['project_' . $c] = parse_markdown_extra($file);
-            // Special formatting
-            if ($c != 'authors') {
-              $data['project_menu'][] = $c;
+      if(is_file($file)) {
+        if(($text = file_get_contents($file)) !== "") {
+          $text = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $text);
+          $text = preg_replace('/\$\$demo_url\$\$/', $this->demo_url, $text);
+          $section_blob = "";
+          $section_title = "";
+          foreach(preg_split("/((\r?\n)|(\r\n?))/", $text) as $line) {
+            if(preg_match("/^----(.*)----$/", $line, $match)) {
+              if($section_title !== "" && $section_blob !== ""){
+                $parsed_blob = "";
+                if(in_array($section_title, $project_config['md'])) {
+                  $parsed_blob = parse_markdown_extra($section_blob);
+                } else if($section_title == "technologies") {
+                  $parsed_blob = explode(',', $section_blob);
+                } else {
+                  $parsed_blob = $section_blob;
+                }
+                $data['project_' . $section_title] = $parsed_blob;
+                if(in_array($section_title, $project_config['menu'])) {
+                  $data['project_menu'][] = $section_title;
+                }
+                $section_blob = "";
+              }
+              $section_title = strtolower($match[1]);
+            } else {
+              $section_blob .= $line . "\n";
             }
-          }
-        }
-        foreach ($plaintexts as $c) {
-          $file = $dir . '/'. $c .'.md';
-          if (file_exists($file)) {
-            $file = file_get_contents($file);
-            $file = preg_replace('/\$\$content_url\$\$/', base_url() . 'assets/content/', $file); 
-            $file = preg_replace('/\$\$demo_url\$\$/', $this->demo_url, $file);
-            
-            // Special formatting
-            if ($c === 'technologies') {
-              $file = explode(',', $file);
-            }
-            $data['project_' . $c] = $file;
           }
         }
       } else {
-        $success = False;
-      }
-      
-      if (!$success) {
         show_404();
       }
 	    $this->layout->view('pages/project', $data);

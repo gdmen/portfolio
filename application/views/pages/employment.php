@@ -1,27 +1,25 @@
-<div class="row">
-  <div class="span4 content">
-    <a href="<?=base_url()?>">
-      <div class="well">
-        Project spotlight
-      </div>
-    </a>
-  </div>
-  <div class="span4 content">
-    <a href="<?=base_url()?>">
-      <div class="well">
-        Latest blog post
-      </div>
-    </a>
-  </div>
-  <div class="span4 content">
-    <a href="<?=base_url()?>">
-      <div class="well">
-        Latest project
-      </div>
-    </a>
-  </div>
-</div>
-<div class="hero-unit">
-  <?=$blurb?>
-</div>
-
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs">
+    <?php
+      $nav_line = '<li class="active">';
+      foreach($items as $arr) {
+        $nav_line .= '<a href="' . $arr[0] . '" data-toggle="tab"><img width="200px" src="' . $arr[1] . '"></a></li>';
+        echo $nav_line;
+        $nav_line = '<li>';
+      }
+    ?>
+  </ul>
+  <div class="tab-content">
+    <?php
+      $nav_line = '<div class="active ';
+      foreach($items as $arr) {
+        $nav_line .= 'tab-pane" id="' . $arr[2] . '">';
+        $nav_line .= '<h1>' . $arr['title'] . '</h1><h3>@ ' . $arr['company'] . ', '. $arr['dates'] . '</h3>';
+        $nav_line .= $arr['body'];
+        $nav_line .= '</div>';
+        echo $nav_line;
+        $nav_line = '<div class="';
+      }
+    ?>
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->

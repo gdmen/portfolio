@@ -1,1 +1,0 @@
-I wrote this website to learn HTML/CSS and it later became an exercise in design. Over the course of several years I updated the website as my skills progressed. You can learn about prior versions of this project in the [Details](#details) section.

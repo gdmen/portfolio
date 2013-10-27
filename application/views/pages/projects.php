@@ -1,4 +1,3 @@
-
   <?php
     // menu element = [<page url>, <thumbnail url>, <title>, <thumbnail size>, <caption size>, <first in line>]
     foreach ($menu as $menu_row) {
