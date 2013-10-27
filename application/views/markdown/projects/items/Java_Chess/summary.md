@@ -1,1 +1,0 @@
-Java Swing chess game for two human players. This chess game was implemented in Java using the Swing toolkit/AWT. It took me about 30 hours over the course of a week and was my final project for AP Computer Science.

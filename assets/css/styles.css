@@ -226,7 +226,7 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #333333;
-  background-color: #ebebeb;
+  background-color: #f8f8f8;
 }
 a {
   color: #0088cc;
@@ -1771,7 +1771,7 @@ table {
   border-top: 2px solid #dddddd;
 }
 .table .table {
-  background-color: #ebebeb;
+  background-color: #f8f8f8;
 }
 .table-condensed th,
 .table-condensed td {
@@ -2630,8 +2630,8 @@ table th[class*="span"],
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
+  background-color: #f8f8f8;
+  border: 1px solid #e6e6e6;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -3468,6 +3468,7 @@ input[type="submit"].btn.btn-mini {
   border-bottom: 1px solid #ddd;
 }
 .nav-tabs > li {
+  background-image: url("../img/fabric_of_squares_gray.png");
   margin-bottom: -1px;
 }
 .nav-tabs > li > a {
@@ -3487,7 +3488,7 @@ input[type="submit"].btn.btn-mini {
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
   color: #555555;
-  background-color: #ebebeb;
+  background-image: url("../img/fabric_of_squares_gray.png");
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -4740,7 +4741,7 @@ input[type="submit"].btn.btn-mini {
   margin-left: 0;
 }
 .thumbnails > li {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   float: left;
   margin-bottom: 19px;
   margin-left: 20px;
@@ -5253,7 +5254,7 @@ a.badge:focus {
   font-weight: 200;
   line-height: 28.5px;
   color: inherit;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -5292,6 +5293,8 @@ a.badge:focus {
 }
 html,
 body {
+  background-color: #f8f8f8;
+  background-image: url("../img/fabric_of_squares_gray.png");
   height: 100%;
 }
 #non-footer {
@@ -5304,60 +5307,64 @@ body {
 #content {
   padding-bottom: 5.95em;
 }
-#header {
+/*
+#header{
   background-color: #000;
-  background-image: url("../img/dvsup.png");
+  background-image: url(@headerBackgroundImage);
   padding-bottom: 1em;
+
+  .header-left {
+  }
+  .brand {
+    font-family: "Sansita One", cursive;
+    font-size: 2em;
+    line-height: 1.5em;
+    margin-left: 2px;
+    &:hover {
+      color: @linkColor;
+      text-decoration: none;
+    }
+  }
+  .header-subtext {
+    color: @gray;
+    font-family: "Sansita One", cursive;
+    margin-left: 1px;
+    &:hover {
+      color: @linkColor;
+      text-decoration: none;
+    }
+  }
 }
-#header .brand {
-  font-family: "Sansita One", cursive;
-  font-size: 2em;
-  line-height: 1.5em;
-  margin-left: 2px;
-}
-#header .brand:hover {
-  color: #0088cc;
-  text-decoration: none;
-}
-#header .header-subtext {
-  color: #555555;
-  font-family: "Sansita One", cursive;
-  margin-left: 1px;
-}
-#header .header-subtext:hover {
-  color: #0088cc;
-  text-decoration: none;
-}
+*/
 footer {
   margin-top: -5.95em;
   height: 4.95em;
   margin-bottom: 1em;
   position: relative;
+  text-align: center;
 }
 footer .container {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
+  background-color: #f8f8f8;
+  border: 1px solid #e6e6e6;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  display: inline-block;
   height: 2.95em;
+  margin-bottom: 0;
   min-height: 0;
-  margin: 0 auto;
   padding: 1em;
-  text-align: center;
+  width: auto;
 }
 footer .container blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
-}
-footer .container .social-media {
-  display: inline-block;
 }
 footer .container .social-media .thumbnails {
   margin: 0;
@@ -5371,39 +5378,6 @@ footer .container .social-media .thumbnails li i {
   color: #004467;
   font-size: 3em;
   text-decoration: none;
-}
-.blog {
-  padding-bottom: 19px;
-}
-.blog .blog-title {
-  text-transform: capitalize;
-}
-.blog .blog-date {
-  color: #555555;
-}
-.blog .blog-date i {
-  padding-right: 0.5em;
-}
-.blog .blog-nav a {
-  text-transform: uppercase;
-}
-.blog .blog-nav a i {
-  vertical-align: middle;
-}
-.blog .blog-nav a.left {
-  float: left;
-}
-.blog .blog-nav a.left i {
-  padding-right: 0.5em;
-}
-.blog .blog-nav a.right {
-  float: right;
-}
-.blog .blog-nav a.right i {
-  padding-left: 0.5em;
-}
-.photography-header {
-  text-transform: capitalize;
 }
 .stop-scrolling {
   height: 100%;

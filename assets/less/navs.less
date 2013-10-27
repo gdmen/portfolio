@@ -115,6 +115,7 @@
 }
 // Make the list-items overlay the bottom border
 .nav-tabs > li {
+  background-image: url(@bodyBackgroundImage);
   margin-bottom: -1px;
 }
 // Actual tabs (as links)
@@ -134,7 +135,7 @@
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
   color: @gray;
-  background-color: @bodyBackground;
+  background-image: url(@bodyBackgroundImage);
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;

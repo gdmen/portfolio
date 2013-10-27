@@ -31,8 +31,11 @@
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        #EBEBEB;
+@bodyBackground:        #F8F8F8;
 @textColor:             @grayDark;
+
+@bodyBackgroundImage: "../img/fabric_of_squares_gray.png";
+@headerBackgroundImage: "../img/dvsup.png";
 
 
 // Links
@@ -136,7 +139,6 @@
 // --------------------------------------------------
 
 // Header
-@headerBackgroundImage: "../img/dvsup.png";
 @headerImageHeight: 10em;
 
 // Footer
@@ -177,7 +179,7 @@
 
 // Wells
 // -------------------------
-@wellBackground:                  #f5f5f5;
+@wellBackground:                  @bodyBackground;//#f5f5f5;
 
 // Navbar
 // -------------------------
@@ -227,7 +229,7 @@
 
 // Hero unit
 // -------------------------
-@heroUnitBackground:              #F5F5F5;
+@heroUnitBackground:              @bodyBackground;//#F5F5F5;
 @heroUnitHeadingColor:            inherit;
 @heroUnitLeadColor:               inherit;
 
